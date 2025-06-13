@@ -5,7 +5,8 @@ For any advices improve this tool, Open the issue with the your advice.
 # poison.py - Fast tool to search log's for LFI vulnerabilities, and automatic escalation to shell
 
 ## Exploitation:
-![Screenshot from 2025-06-13 09-35-31](https://github.com/user-attachments/assets/d6115bb0-e5d4-418f-b4fa-e527517d6689)
+![Preview](https://github.com/user-attachments/assets/8d658876-79d6-41f1-9456-91681be9782e)
+
 
 
 ## Example usage:
