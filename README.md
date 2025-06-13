@@ -3,7 +3,7 @@ Usage of poison.py for attacking targets without prior mutual consent is illegal
 
 # poison.py
 poison.py - Fast tool to search for available log files for LFI vulnerabilities, and automatic escalation to shell
-This program has active developming right now, of any bugs, and issues create the theme in Issues (Github)
+# This program has active developming right now, of any bugs, and issues create the theme in Issues (Github)
 
 ![Screenshot from 2025-06-13 09-31-28](https://github.com/user-attachments/assets/53aad267-25aa-4c91-85a4-d6c67a9aa019)
 # Exploitation:
