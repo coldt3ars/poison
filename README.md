@@ -2,7 +2,7 @@
 This program has active developming right now, of any bugs, and issues create the theme in Issues (Github)
 
 For any advices improve this tool, Open the issue with the your advice.
-# poison.py - Fast tool to search for available log files for LFI vulnerabilities, and automatic escalation to shell
+# poison.py - Fast tool to search log's for LFI vulnerabilities, and automatic escalation to shell
 
 ## Exploitation:
 ![Screenshot from 2025-06-13 09-35-31](https://github.com/user-attachments/assets/d6115bb0-e5d4-418f-b4fa-e527517d6689)
