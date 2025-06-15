@@ -163,6 +163,7 @@ def test_log(url, param, word, cookies, cmd, payloads):
 
 def main():
     parser = argparse.ArgumentParser()
+    print('Version 1.2 | Stable')
     parser.add_argument('-u', '--url', required=True)
     parser.add_argument('-w', '--wordlist', default='src/wordlist.txt')
     parser.add_argument('--cookie', help='cookies for search')
