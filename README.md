@@ -1,5 +1,5 @@
 # poison.py
-Fast tool to search log's for LFI vulnerabilities, and automatic escalation to shell
+Fast tool to search log's for LFI/RFI vulnerabilities, and automatic escalation to shell
 
 ## Exploitation:
 ![Preview](https://github.com/user-attachments/assets/8d658876-79d6-41f1-9456-91681be9782e)
