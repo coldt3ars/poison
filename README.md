@@ -1,6 +1,7 @@
 # poison.py
-Fast tool to search accessible log's files for LFI/RFI vulnerabilities, and automatic escalation to shell
-all the wordlists and payloads is included
+Fast tool to search accessible log's files for LFI/RFI vulnerabilities written on python3, automatic escalation to RCE/Shell.
+
+*(all the wordlists and payloads is included)*
 
 ## Installation:
 ```
